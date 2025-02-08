@@ -1,10 +1,12 @@
+package Client2;
 import java.io.*;
 import java.net.*;
 
-public class Client {
-    public static void main(String[] args) {
+public class Sender2 implements Runnable {
+    @Override
+    public void run() {
         String hostname = "localhost";
-        int port = 5000;
+        int port = 5001;
         Socket socket = null;
         BufferedWriter writer = null;
         BufferedReader consoleInput = null;
@@ -15,7 +17,7 @@ public class Client {
             writer = new BufferedWriter(new OutputStreamWriter(output));
             consoleInput = new BufferedReader(new InputStreamReader(System.in));
 
-            System.out.println("Connected to the server. Type your message:");
+            System.out.println("Connected to the client1. Type your message:");
 
             String message;
             while (true) {
@@ -26,7 +28,7 @@ public class Client {
                 writer.flush();
             }
 
-            System.out.println("Disconnected from server");
+            System.out.println("Disconnected from client1.");
 
         } catch (IOException e) {
             e.printStackTrace();
